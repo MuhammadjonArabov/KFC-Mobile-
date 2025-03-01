@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".ProfileActivity"
     android:background="#ececec">
     <ScrollView
         android:layout_width="match_parent"
@@ -39,7 +39,7 @@
                     app:srcCompat="@drawable/profile" />
 
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/textViewEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Lion Fischer"
