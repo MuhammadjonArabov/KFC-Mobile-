@@ -1,28 +1,33 @@
 package com.example.kfc;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.TextView;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class ProfileActivity extends AppCompatActivity {
+
+    private TextView textViewEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        TextView textViewEmail = findViewById(R.id.editTextEmail);
-        SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+        textViewEmail = findViewById(R.id.textView2);
 
-        String userEmail = sharedPreferences.getString("USER_EMAIL", "No Email Found");
+        // Intent orqali emailni olish
+        Intent intent = getIntent();
+        String email = intent.getStringExtra("USER_EMAIL");
 
-        textViewEmail.setText(userEmail);
+        // Agar Intent bo'sh bo'lsa, SharedPreferences dan olish
+        if (email == null || email.isEmpty()) {
+            SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+            email = sharedPreferences.getString("USER_EMAIL", "Email topilmadi");
+        }
 
+        // TextView-ga emailni o‘rnatish
+        textViewEmail.setText(email);
     }
 }

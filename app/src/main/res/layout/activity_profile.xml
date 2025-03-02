@@ -55,11 +55,12 @@
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="lionfischer@gmail.com"
                     android:textSize="20sp"
-                    app:layout_constraintEnd_toEndOf="@+id/textView"
-                    app:layout_constraintStart_toStartOf="@+id/textView"
-                    app:layout_constraintTop_toBottomOf="@+id/textView" />
+                    android:textColor="#000000"
+                    android:text="Email"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewEmail"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
