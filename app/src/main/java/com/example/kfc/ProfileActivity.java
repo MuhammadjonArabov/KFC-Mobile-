@@ -8,26 +8,34 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    private TextView textViewEmail;
+    private TextView textViewEmail, textViewName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        textViewEmail = findViewById(R.id.textView2);
+        textViewEmail = findViewById(R.id.textViewEmail);
+        textViewName = findViewById(R.id.textViewName);
 
-        // Intent orqali emailni olish
+        // Intent orqali kelgan ma'lumotlarni olish
         Intent intent = getIntent();
         String email = intent.getStringExtra("USER_EMAIL");
+        String name = intent.getStringExtra("USER_NAME");
 
-        // Agar Intent bo'sh bo'lsa, SharedPreferences dan olish
-        if (email == null || email.isEmpty()) {
-            SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+        // SharedPreferences dan ma'lumotlarni olish
+        SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+
+        if (email == null || email.trim().isEmpty()) {
             email = sharedPreferences.getString("USER_EMAIL", "Email topilmadi");
         }
 
-        // TextView-ga emailni o‘rnatish
+        if (name == null || name.trim().isEmpty()) {
+            name = sharedPreferences.getString("USER_NAME", "Foydalanuvchi nomi yo‘q");
+        }
+
+        // Olingan ma'lumotlarni ekranga chiqarish
         textViewEmail.setText(email);
+        textViewName.setText(name);
     }
 }
