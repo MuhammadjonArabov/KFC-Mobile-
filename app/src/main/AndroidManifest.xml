@@ -13,24 +13,27 @@
         android:theme="@style/Theme.KFC"
         tools:targetApi="31">
 
+        <!-- HodisalarActivity (Ilova ochilganda birinchi bo‘lib ochiladi) -->
+        <activity
+            android:name=".HodisalarActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <!-- Ro'yxatdan o'tish Activity -->
         <activity
             android:name=".SignupActivity"
             android:exported="true" />
 
-        <!-- Tizimga kirish Activity (Ilova ochilganda birinchi shu ochiladi) -->
+        <!-- Tizimga kirish Activity -->
         <activity
             android:name=".LoginActivity"
-            android:exported="true">
+            android:exported="false" />
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-        </activity>
-
-        <!-- Asosiy Activity (Ilova ichidagi asosiy ekran) -->
+        <!-- Asosiy Activity -->
         <activity
             android:name=".MainActivity"
             android:exported="false" />
