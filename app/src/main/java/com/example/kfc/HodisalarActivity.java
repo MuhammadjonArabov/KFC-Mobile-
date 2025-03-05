@@ -35,5 +35,13 @@ public class HodisalarActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Tugma bosildi!", Toast.LENGTH_SHORT).show();
             }
         });
+
+        myButton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Toast.makeText(getApplicationContext(), "Tugma uzoq bosildi!", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
     }
 }
